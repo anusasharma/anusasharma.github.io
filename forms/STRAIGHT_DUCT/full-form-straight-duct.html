@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Roommate form</title>
+
+    <style type="text/css" media="all">
+              .header {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .home-btn {
+            color: white;
+            text-decoration: none
+        }
+
+        .select-order-btn {
+            color: white;
+            text-decoration: none
+        }
+
+        .table-style {
+            margin: 10px 50px
+        }
+
+        .logo-heading-cont {
+            display: flex;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            width: 50%
+
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        div#wrapper {
+            position: relative;
+            width: 75%;
+            height: 75%;
+        }
+        .inputA{
+                position: absolute;
+                bottom: 35px;
+    left: 185px;
+                width: 5%;
+                border: 1px solid black;
+            }
+        
+
+            .inputB{
+                position: absolute;
+                top: 75px;
+    left: 115px;
+                width: 5%;
+                border: 1px solid black;
+            }
+        
+
+
+            .inputC{
+                position: absolute;
+                bottom: 5px;
+    left: 430px;
+                width: 5%;
+                border: 1px solid black;
+            }
+            .image-style {
+            text-align: center;
+            width: 219mm
+        }
+
+        button {
+            /*width: 150px;*/
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #008CBA;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff0066;
+        }
+    </style>
+
+    <style type="text/css" media="print">
+        .table-style {
+            margin: 10px 50px
+        }
+
+        .logo-heading-cont {
+            display: flex;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            width: 50%;
+
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        div#wrapper {
+            position: relative;
+            width: 75%;
+            height: 75%;
+        }
+
+        .inputA{
+                position: absolute;
+                bottom: 35px;
+    left: 185px;
+                width: 5%;
+                border: 1px solid black;
+            }
+        
+
+            .inputB{
+                position: absolute;
+                top: 75px;
+    left: 115px;
+                width: 5%;
+                border: 1px solid black;
+            }
+        
+
+
+            .inputC{
+                position: absolute;
+                bottom: 5px;
+    left: 430px;
+                width: 5%;
+                border: 1px solid black;
+            }
+            .image-style {
+            text-align: center;
+            width: 219mm
+        }
+        button {
+
+            display: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <button id="pdfButton" onclick="myFunction()"><b> PDF or print</b></button>
+            <button id="emailBtn" onclick="sendEmail()"><b> Email</b></button>
+
+        </div>
+
+        <div>
+            <button><a href="../../index.html" class="home-btn">Home</a></button>
+            <button><a href="../../select-order.html" class="select-order-btn">Select
+                    Order</a></button>
+        </div>
+
+
+    </div>
+
+    <div id="mailBody" class="table-style">
+        <h3 >STRAIGHT DUCT</h3>
+        <table>
+        <tr>
+            <td >Company name:</td>
+            <td><span id="cname"></span></td>
+        </tr>
+        <tr>
+            <td >P.O.#:</td>
+            <td><span id="po"></span></td>
+        </tr>
+        <tr>
+            <td >First name: </td>
+            <td><span id="fname"></span></td>
+        </tr>
+        <tr>
+            <td >Last name:</td>
+            <td><span id="lname"></span></td>
+        </tr>
+        <tr>
+            <td >Address:</td>
+            <td><span id="address"></span></td>
+        </tr>
+        <tr>
+            <td >Email:</td>
+            <td><span id="email"></span></td>
+        </tr>
+        <tr>
+            <td >Phone:</td>
+            <td><span id="phone"></span></td>
+        </tr>
+
+
+        <tr>
+            <td >Date:</td>
+            <td><span id="date"></span></td>
+        </tr>
+
+        <tr>
+            <td >Required date:</td>
+            <td><span id="rdate"></span></td>
+        </tr>
+    </table>
+
+    <table>
+
+        <tr>
+            <td >Variation:</td>
+            <td><span id="checkedVariation"></span></td>
+        </tr>
+        <tr>
+            <td >Gauge:</td>
+            <td><span id="gauge"></span></td>
+        </tr>
+        <tr>
+            <td >Qty:</td>
+            <td><span id="qty"></span></td>
+        </tr>
+        <tr>
+            <td >Option:</td>
+            <td><span id="checkedOptions"></span></td>
+        </tr>
+
+    </table>
+
+    <div class="image-style">
+        <div id="wrapper">
+            <img src="../../assets/img/straight-duct.png">
+            <span class="inputA" id="A"></span>
+            <span class="inputB" id="B"></span>
+            <span class="inputC" id="C"></span>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+  document.getElementById("cname").innerHTML=localStorage.getItem("comnamevalue");
+  document.getElementById("po").innerHTML=localStorage.getItem("povalue");
+  document.getElementById("fname").innerHTML=localStorage.getItem("firstnamevalue");
+  document.getElementById("lname").innerHTML=localStorage.getItem("lastnamevalue");
+  document.getElementById("address").innerHTML=localStorage.getItem("addressvalue");
+  document.getElementById("email").innerHTML=localStorage.getItem("emailvalue");
+  document.getElementById("phone").innerHTML=localStorage.getItem("phonevalue");
+  document.getElementById("date").innerHTML=localStorage.getItem("datevalue");
+  document.getElementById("rdate").innerHTML=localStorage.getItem("rdatevalue");
+
+  document.getElementById("checkedVariation").innerHTML=localStorage.getItem("variationValue");
+
+  document.getElementById("checkedOptions").innerHTML=localStorage.getItem("sideValue");
+
+  document.getElementById("gauge").innerHTML=localStorage.getItem("gaugeValue");
+  document.getElementById("qty").innerHTML=localStorage.getItem("qtyValue");
+
+  document.getElementById("A").innerHTML=localStorage.getItem("Avalue");
+  document.getElementById("B").innerHTML=localStorage.getItem("Bvalue");
+  document.getElementById("C").innerHTML=localStorage.getItem("Cvalue");
+  function myFunction(){
+      window.print ();
+  }
+
+  function sendEmail() {
+
+var element = document.getElementById('mailBody');
+var options = {
+    jsPDF: {
+        format: 'letter',
+        orientation: 'portrait'
+    },
+    html2canvas: { letterRendering: true, useCORS: true, logging: true, dpi: 180 },
+};
+html2pdf().set(options).from(element).outputPdf().then(function (pdf) {
+    // This logs the right base64
+    dataUri = btoa(pdf)
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "anusarva57@gmail.com",
+        Password: "D968054CA996DB51A646DA4E3DB5FD127EB3",
+        To: "anusoruban@gmail.com",
+        From: "anusarva57@gmail.com",
+        Subject: "Straight duct pdf",
+        Body: "Please check the Straight duct pdf",
+        Attachments: [
+            {
+                name: "straight_duct.pdf",
+                data: dataUri
+            }]
+    })
+        .then(function (message) {
+            alert("Mail has been sent successfully")
+        });
+
+});
+}
+</script>
+</body>
+</html>

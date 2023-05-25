@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <meta charset="UTF-8">
+    <title>Roommate form</title>
+
+    <style type="text/css" media="all">
+         .header{
+            display: flex; justify-content: space-between
+
+           
+        }
+
+        .home-btn{
+                color: white; text-decoration: none
+            }
+
+            .select-order-btn{
+                color: white; text-decoration: none
+            }
+        .table-style{
+            margin: 10px 50px
+        }
+
+        .logo-heading-cont{
+            display: flex;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px; margin-bottom: 10px
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            width: 50%
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        div#wrapper {
+            position: relative;
+            width: 75%;
+            height: 75%;
+        }
+
+        .logo-img {
+            align-content: flex-start;
+            height: 8rem;
+        }
+
+        .logo-img-container {
+            width: 60%;
+            text-align: end
+        }
+
+        .heading {
+            width: 70%;
+            margin: auto;
+            align-self: center
+        }
+
+        @media (max-width: 1135px) {
+            .logo-img-container {
+                width: 50%;
+                text-align: end;
+            }
+
+            .heading {
+                width: 60%;
+                margin: auto;
+                align-self: center
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 25px;
+                color: black;
+                z-index: 2;
+            }
+        }
+
+        @media (min-width: 1136px) {
+            h1 {
+                margin: 0;
+                font-size: 30px;
+                color: black;
+                z-index: 2;
+            }
+        }
+
+
+            .inputJ2 {
+                position: absolute;
+                bottom: 335px;
+                left: 400px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputJ1 {
+                position: absolute;
+                bottom: -5px;
+                left: 320px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputA {
+                position: absolute;
+                top: 245px;
+                left: 80px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputB {
+                position: absolute;
+                top: 270px;
+                left: 265px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputC {
+                position: absolute;
+                bottom: 295px;
+                left: 100px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputD{
+                position: absolute;
+                bottom: 365px;
+                left: 185px;
+                width: 5%;
+                border: 1px solid black;
+            }
+        
+            .inputE{
+                position: absolute;
+                bottom: 195px;
+                left: 325px;
+                width: 5%;
+                border: 1px solid black;
+            }
+      
+        .image-style {
+            text-align: center;        
+            width: 219mm;
+        }
+
+        button {
+            /*width: 150px;*/
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #008CBA;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff0066;
+        }
+    </style>
+
+    <style type="text/css" media="print">
+         .table-style{
+            margin: 10px 50px
+        }
+
+        .logo-heading-cont{
+            display: flex;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px; margin-bottom: 10px
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            width: 50%;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        div#wrapper {
+            position: relative;
+            width: 75%;
+            height: 75%;
+        }
+
+        .inputJ2 {
+                position: absolute;
+                bottom: 335px;
+                left: 400px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputJ1 {
+                position: absolute;
+                bottom: -5px;
+                left: 320px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputA {
+                position: absolute;
+                top: 245px;
+                left: 80px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputB {
+                position: absolute;
+                top: 270px;
+                left: 265px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputC {
+                position: absolute;
+                bottom: 295px;
+                left: 100px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+            .inputD{
+                position: absolute;
+                bottom: 365px;
+                left: 185px;
+                width: 5%;
+                border: 1px solid black;
+            }
+        
+            .inputE{
+                position: absolute;
+                bottom: 195px;
+                left: 325px;
+                width: 5%;
+                border: 1px solid black;
+            }
+
+        
+
+        .image-style {
+            text-align: center;
+            width: 219mm
+        }
+
+        button {
+
+            display: none;
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <button id="pdfButton" onclick="myFunction()"><b> PDF or print</b></button>
+            <button id="emailBtn" onclick="sendEmail()"><b> Email</b></button>
+
+        </div>
+
+        <div>
+            <button><a href="../../index.html" class="home-btn" >Home</a></button>
+            <button><a href="../../select-order.html" class="select-order-btn" >Select
+                    Order</a></button>
+        </div>
+
+
+    </div>
+
+
+<div id="mailBody" class="table-style">
+    <!-- <div class="logo-heading-cont">
+        <div class="logo-img-container">
+            <img class="logo-img" src="../../assets/img/logo1.png">
+
+        </div>
+        <div class="heading">
+            <h1>CUSTOM FITTINGS Order </h1>
+
+        </div>
+    </div> -->
+    <h3>STACK ELBOW REDUCING</h3>
+    <table>
+        <tr>
+            <td >Company name:</td>
+            <td><span id="cname"></span></td>
+        </tr>
+        <tr>
+            <td >P.O.#:</td>
+            <td><span id="po"></span></td>
+        </tr>
+        <tr>
+            <td >First name: </td>
+            <td><span id="fname"></span></td>
+        </tr>
+        <tr>
+            <td >Last name:</td>
+            <td><span id="lname"></span></td>
+        </tr>
+        <tr>
+            <td >Address:</td>
+            <td><span id="address"></span></td>
+        </tr>
+        <tr>
+            <td >Email:</td>
+            <td><span id="email"></span></td>
+        </tr>
+        <tr>
+            <td >Phone:</td>
+            <td><span id="phone"></span></td>
+        </tr>
+
+        <tr>
+            <td >Date:</td>
+            <td><span id="date"></span></td>
+        </tr>
+
+        <tr>
+            <td >Required date:</td>
+            <td><span id="rdate"></span></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td >Stack Elbow Reducing:</td>
+            <td ><span id="stackReducing"></span></td>
+        </tr>
+        <tr>
+            <td >Variation:</td>
+            <td><span id="checkedVariation"></span></td>
+        </tr>
+
+        <tr>
+            <td >Gauge:</td>
+            <td><span id="gauge"></span></td>
+        </tr>
+        <tr>
+            <td >Qty:</td>
+            <td><span id="qty"></span></td>
+        </tr>
+
+        <tr>
+            <td >Indicate:</td>
+            <td><span id="checkedIndicate"></span></td>
+        </tr>
+
+        <tr>
+            <td >Side:</td>
+            <td><span id="checkedSide"></span></td>
+        </tr>
+
+        <tr>
+            <td >Option:</td>
+            <td><span id="checkedOption"></span></td>
+        </tr>
+
+    </table>
+
+    <div class="image-style">
+        <div id="wrapper">
+            <img class="alignment" src="../../assets/img/stack-elbow-reducing.png">
+            <span class="inputJ1" id="j1"></span>
+            <span class="inputJ2" id="j2"></span>
+            <span class="inputA" id="A"></span>
+            <span class="inputB" id="B"></span>
+            <span class="inputC" id="C"></span>
+            <span class="inputD" id="D"></span>
+            <span class="inputE" id="E"></span>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+  document.getElementById("cname").innerHTML=localStorage.getItem("comnamevalue");
+  document.getElementById("po").innerHTML=localStorage.getItem("povalue");
+  document.getElementById("fname").innerHTML=localStorage.getItem("firstnamevalue");
+  document.getElementById("lname").innerHTML=localStorage.getItem("lastnamevalue");
+  document.getElementById("address").innerHTML=localStorage.getItem("addressvalue");
+  document.getElementById("email").innerHTML=localStorage.getItem("emailvalue");
+  document.getElementById("phone").innerHTML=localStorage.getItem("phonevalue");
+  document.getElementById("date").innerHTML=localStorage.getItem("datevalue");
+  document.getElementById("rdate").innerHTML=localStorage.getItem("rdatevalue");
+
+  document.getElementById("stackReducing").innerHTML=localStorage.getItem("stackReducingValue");
+
+  document.getElementById("checkedVariation").innerHTML=localStorage.getItem("variationValue");
+
+  document.getElementById("checkedIndicate").innerHTML=localStorage.getItem("indicateValue");
+
+  document.getElementById("checkedSide").innerHTML=localStorage.getItem("sideValue");
+
+  if(localStorage.getItem("checkedSqHeelValue") === "true") {
+      document.getElementById("checkedOption").innerHTML=localStorage.getItem("sqHeelValue");
+  }
+  else{
+      document.getElementById("checkedOption").innerHTML=localStorage.getItem("sqHeelValueFalse");
+  }
+
+  document.getElementById("gauge").innerHTML=localStorage.getItem("gaugeValue");
+  document.getElementById("qty").innerHTML=localStorage.getItem("qtyValue");
+
+  document.getElementById("A").innerHTML=localStorage.getItem("Avalue");
+  document.getElementById("B").innerHTML=localStorage.getItem("Bvalue");
+  document.getElementById("C").innerHTML=localStorage.getItem("Cvalue");
+  document.getElementById("D").innerHTML=localStorage.getItem("Dvalue");
+  document.getElementById("E").innerHTML=localStorage.getItem("Evalue");
+  document.getElementById("j1").innerHTML=localStorage.getItem("j1value");
+  document.getElementById("j2").innerHTML=localStorage.getItem("j2value");
+
+  function myFunction(){
+      window.print ();
+  }
+  function sendEmail() {
+
+var element = document.getElementById('mailBody');
+var options = {
+    jsPDF: {
+        format: 'letter',
+        orientation: 'portrait'
+    },
+    html2canvas: {letterRendering: true, useCORS: true, logging: true, dpi: 180 },
+};
+html2pdf().set(options).from(element).outputPdf().then(function (pdf) {
+    // This logs the right base64
+    dataUri = btoa(pdf)
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "anusarva57@gmail.com",
+        Password: "D968054CA996DB51A646DA4E3DB5FD127EB3",
+        To: "anusoruban@gmail.com",
+        From: "anusarva57@gmail.com",
+        Subject: "Stack Elbow Reducing pdf",
+        Body: "Please check the Stack Elbow Reducing pdf",
+        Attachments: [
+            {
+                name: "stack_elbow_reducing.pdf",
+                data: dataUri
+            }]
+    })
+        .then(function (message) {
+            alert("Mail has been sent successfully")
+        });
+
+});
+}
+
+
+
+</script>
+</body>
+</html>

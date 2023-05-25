@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Roommate Application Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <style>
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body,
+        div,
+        form,
+        input,
+        textarea,
+        p {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 22px;
+        }
+
+        .logo-img {
+            align-content: flex-start;
+            height: 10rem;
+        }
+
+        .logo-img-container {
+            width: 30%;
+            text-align: center
+        }
+
+        .heading {
+            width: 70%;
+            margin: auto;
+            align-self: center
+        }
+
+        @media (max-width: 1135px) {
+            .logo-img-container {
+                width: 40%;
+                text-align: center
+            }
+
+            .heading {
+                width: 60%;
+                margin: auto;
+                align-self: center
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 30px;
+                color: black;
+                z-index: 2;
+            }
+        }
+
+        @media (min-width: 1136px) {
+            h1 {
+                margin: 0;
+                font-size: 50px;
+                color: black;
+                z-index: 2;
+            }
+        }
+
+        .testbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+            padding: 50px;
+        }
+
+        form {
+            width: 100%;
+            padding: 20px;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 0 10px 0 #cc0052;
+        }
+
+        input,
+        textarea {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input {
+            width: calc(100% - 10px);
+            padding: 5px;
+        }
+
+        textarea {
+            width: calc(100% - 12px);
+            padding: 5px;
+        }
+
+        .item:hover p,
+        input:hover::placeholder {
+            color: #cc0052;
+        }
+
+        .item input:hover,
+        .item textarea:hover {
+            border: 1px solid transparent;
+            box-shadow: 0 0 6px 0 #cc0052;
+            color: #cc0052;
+        }
+
+        .first-radio-button {
+            width: auto;
+            margin-bottom: 0;
+            margin-left: 30px;
+        }
+
+        .item {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .btn-block {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button {
+            /*width: 150px;*/
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #008CBA;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff0066;
+        }
+
+        .contact-item-variation {
+            display: flex;
+        }
+
+        .details-input {
+            align-self: center;
+            margin-bottom: inherit;
+            font-size: 15px;
+            padding-right: 10px;
+            color: black;
+        }
+
+        .label {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @media (min-width: 568px) {
+            .contact-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .contact-item .item {
+                width: calc(50% - 8px);
+            }
+
+            .contact .item {
+                width: calc(50% - 40px);
+            }
+
+            .name-item input {
+                width: calc(50% - 20px);
+            }
+
+            .contact-item input {
+                width: calc(100% - 12px);
+            }
+
+            .contact-item-variation input {
+                width: 40%;
+
+            }
+
+            .contact-item-variation1 input {
+                width: 10%;
+
+            }
+        }
+
+        .common-display {
+            display: flex;
+            color: black
+        }
+
+        div#wrapper {
+            position: relative;
+            width: 75%;
+            height: 75%;
+        }
+
+
+        .inputJ2 {
+            position: absolute;
+            bottom: 225px;
+            right: 80px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+
+
+        .inputJ1 {
+            position: absolute;
+            top: 265px;
+            left: 145px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+
+
+
+
+        .inputA {
+            position: absolute;
+            top: -22px;
+            left: 250px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+
+
+        .inputB {
+            position: absolute;
+            top: 183px;
+            right: 235px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+
+
+
+        .inputC {
+            position: absolute;
+            bottom: 184px;
+            left: 350px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+
+
+        .inputD {
+            position: absolute;
+            bottom: 135px;
+            right: 100px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+
+        .inputE {
+            position: absolute;
+            bottom: 22px;
+            left: 400px;
+            width: 5%;
+            border: 1px solid black;
+        }
+
+        .image-style {
+            text-align: center;
+            margin-top: 5rem;
+            margin-left: 10rem;
+            width: 219mm
+        }
+
+
+        .no-arrow {
+            -moz-appearance: textfield;
+        }
+
+        .no-arrow::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .no-arrow::-webkit-outer-spin-button,
+        .no-arrow::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+
+
+<script type="text/javascript">
+
+
+    function preventBack() {
+        window.history.forward();
+    }
+
+    setTimeout("preventBack()", 0);
+
+    window.onunload = function () {
+        null
+    };
+
+    function confirmPost() {
+        var ask = window.confirm("Do you want to submit the form?");
+        if (ask) {
+            window.alert("Submitted");
+            window.location.href = "full-form-transition-offset.html";
+            passValues();
+        } else {
+            event.preventDefault();
+        }
+    }
+
+    $(function () {
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var minDate = year + '-' + month + '-' + day;
+
+        document.getElementById("date").value = minDate
+        $('#rdate').attr('min', minDate);
+    });
+
+    function passValues() {
+        let i;
+        var companyname = document.getElementById("comname").value;
+        localStorage.setItem("comnamevalue", companyname);
+
+        var po = document.getElementById("po").value;
+        localStorage.setItem("povalue", po);
+
+        var firstname = document.getElementById("fname").value;
+        localStorage.setItem("firstnamevalue", firstname);
+
+        var lastname = document.getElementById("lname").value;
+        localStorage.setItem("lastnamevalue", lastname);
+
+        var address = document.getElementById("address").value;
+        localStorage.setItem("addressvalue", address);
+
+        var email = document.getElementById("email").value;
+        localStorage.setItem("emailvalue", email);
+
+        var phone = document.getElementById("phone").value;
+        localStorage.setItem("phonevalue", phone);
+
+        var date = document.getElementById("date").value;
+        localStorage.setItem("datevalue", date);
+
+        var rdate = document.getElementById("rdate").value;
+        localStorage.setItem("rdatevalue", rdate);
+
+        var checkedVariation = document.getElementsByName("variation");
+
+        var checkedTopRise = document.getElementById("top-rise");
+        var checkedBottomRise = document.getElementById("bottom-rise");
+        var checkedTopDrop = document.getElementById("top-drop");
+        var checkedBottomDrop = document.getElementById("bottom-drop");
+
+
+
+        var checkedLLOff = document.getElementById("ll-off");
+        var checkedRLOffset = document.getElementById("rl-off");
+        var checkedRROff = document.getElementById("rr-off");
+        var checkedLROffset = document.getElementById("lr-off");
+
+            if (checkedTopRise.checked) {
+                localStorage.setItem("riseValue", "Top Rise");
+            }
+            else if (checkedBottomRise.checked) {
+                console.log(checkedBottomRise.value);
+
+                localStorage.setItem("riseValue", "Bottom Rise");
+            }
+        
+       
+            else if (checkedTopDrop.checked) {
+                console.log(checkedTopDrop.value);
+                localStorage.setItem("riseValue", "Top Drop");
+            }
+            else if (checkedBottomDrop.checked) {
+                localStorage.setItem("riseValue", "Bottom Drop");
+            }
+        
+
+        
+            if (checkedLLOff.checked) {
+                localStorage.setItem("offsetValue", "L-L Off");
+            }
+            else if (checkedRLOffset.checked) {
+                localStorage.setItem("offsetValue", "R-L Offset");
+            }
+        
+       
+            else if (checkedRROff.checked) {
+                localStorage.setItem("offsetValue", "RR-Off");
+            }
+            else if (checkedLROffset.checked) {
+                localStorage.setItem("offsetValue", "LR-Offset");
+            }
+
+
+        for (i = 0; i < checkedVariation.length; i++) {
+            if (checkedVariation[i].checked)
+                localStorage.setItem("variationValue", checkedVariation[i].value);
+        }
+
+        var gauge = document.getElementById("gauge").value;
+        localStorage.setItem("gaugeValue", gauge);
+
+        var qty = document.getElementById("qty").value;
+        localStorage.setItem("qtyValue", qty);
+
+        
+        var A = document.getElementById("A").value;
+        console.log(A);
+        localStorage.setItem("Avalue", A);
+
+        var B = document.getElementById("B").value;
+        localStorage.setItem("Bvalue", B);
+
+        var C = document.getElementById("C").value;
+        localStorage.setItem("Cvalue", C);
+
+        var D = document.getElementById("D").value;
+        localStorage.setItem("Dvalue", D);
+
+        var E = document.getElementById("E").value;
+        localStorage.setItem("Evalue", E);
+
+        var j1 = document.getElementById("j1").value;
+        localStorage.setItem("j1value", j1);
+
+        var j2 = document.getElementById("j2").value;
+        localStorage.setItem("j2value", j2);
+
+  
+        
+        
+        return false;
+
+    }
+
+
+</script>
+</head>
+
+<body>
+    <div class="testbox">
+        <form id="form" action="full-form-transition-offset.html" onsubmit="confirmPost()">
+            <div style="text-align: end">
+                <button><a href="../../index.html" style="color: white; text-decoration: none">Home</a></button>
+                <button><a href="../../select-order.html" style="color: white; text-decoration: none">Select
+                        Order</a></button>
+            </div>
+            <div style="display: flex;">
+                <div class="logo-img-container">
+                    <img class="logo-img" src="../../assets/img/logo1.png">
+
+                </div>
+                <div class="heading">
+                    <h1>CUSTOM FITTINGS Order Form</h1>
+
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="item">
+                    <label for="comname">Company Name</label>
+                    <input type="text" name="comname" id="comname" placeholder="Company Name" required />
+                </div>
+                <div class="item">
+                    <label for="po">P.O.#</label>
+                    <input type="text" name="po" id="po" placeholder="P.O.#" required />
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="item">
+                    <label for="fname">First name</label>
+                    <input type="text" name="fname" id="fname" placeholder="First name" required />
+                </div>
+
+                <div class="item">
+                    <label for="lname">Last name</label>
+                    <input type="text" name="lname" id="lname" placeholder="Last name" required />
+                </div>
+            </div>
+            <div class="contact-item">
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" placeholder="Address" required />
+            </div>
+
+            <div class="contact-item">
+                <div class="item">
+                    <label for="phone">Phone</label>
+                    <input type="number" name="phone" id="phone" class="no-arrow" placeholder="Phone" required />
+                </div>
+
+                <div class="item">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required />
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div class="item">
+                    <label for="date">Date</label>
+                    <input type="text" name="date" id="date"  />
+                </div>
+
+                <div class="item">
+                    <label for="rdate">Required Date</label>
+                    <input type="date" name="date" id="rdate" required />
+                </div>
+            </div>
+            <hr size="2" width="100%" color="black">
+            <div class="row" style="display: flex;">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="width: 100%">
+                    <h2 class="common-display">Transition Offset
+                    </h2>
+
+                    <div class="row d-flex">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="common-display">VARIATION:
+                                <input class="first-radio-button" type="radio" id="dl1" name="variation" value="DL½" checked>
+                                <label class="label" for="dl1">DL ½"</label><br>
+                                <input class="first-radio-button" type="radio" id="one1" name="variation" value="1">
+                                <label class="label" for="one1">1"</label><br>
+
+
+                            </h3>
+
+                            <div class="contact-item-variation">
+                                <div class="item d-flex">
+                                    <label class="details-input" for="gauge">Gauge</label>
+                                    <input type="number" class="no-arrow" name="gauge" id="gauge" placeholder="Gauge"
+                                        required />
+                                </div>
+
+                                <div class="item d-flex">
+                                    <label class="details-input" for="qty">Qty</label>
+                                    <input type="number" class="no-arrow" name="qty" id="qty" placeholder="Qty"
+                                        required />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="image-style">
+                        <div id="wrapper">
+                            <img src="../../assets/img/transition-1.png">
+                            <label for="j1"></label><input type="number" class="inputJ1 no-arrow" id="j1" required>
+                            <label for="j2"></label><input type="number" class="inputJ2 no-arrow" id="j2" required>
+                            <label for="A"></label><input type="number" class="inputA no-arrow" id="A" required>
+                            <label for="B"></label><input type="number" class="inputB no-arrow" id="B" required>
+                            <label for="C"></label><input type="number" class="inputC no-arrow" id="C" required>
+                            <label for="D"></label><input type="number" class="inputD no-arrow" id="D" required>
+                            <label for="E"></label><input type="number" class="inputE no-arrow" id="E" required>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 5%; margin-bottom: 2%;">
+                        <div style="color: black">
+                            <label for="rise1" class="label"><b>
+                                    <h3>RISE (Check One & Select Rise)</h3>
+                                </b></label><br>
+                            <!-- <input  type="radio" id="rise1" name="rise" value="RISE - 1" style="width: auto; margin-bottom: 0;position: absolute;
+    margin-top: 20px;" checked> -->
+
+                            <input  type="radio" id="top-rise" name="riseAngle"
+                                value="TOP RISE" style="width: auto; margin-bottom: 0;position: absolute;
+    margin-left: 22px;
+    margin-top: 70px;" checked>
+
+                            <input  type="radio" id="bottom-rise" name="riseAngle"
+                                value="BOTTOM RISE" style="width: auto; margin-bottom: 0;position: absolute;
+       margin-left: 286px;
+    margin-top: 146px;">
+                            <img src="../../assets/img/rise1.png">
+                            <!-- <input  type="radio" id="rise2" name="rise" value="RISE - 2" style="width: auto; margin-bottom: 0;position: absolute;
+    margin-left: 68px;
+    margin-top: 20px;"> -->
+
+<input  type="radio" id="top-drop" name="riseAngle"
+value="TOP DROP" style="width: auto; margin-bottom: 0;position: absolute;
+margin-left: 341px;
+margin-top: 77px;">
+                            <input  type="radio" id="bottom-drop" name="riseAngle"
+                                value="BOTTOM DROP" style="width: auto; margin-bottom: 0;position: absolute;
+       margin-left: 74px;
+    margin-top: 138px;">
+
+                          
+                            <img src="../../assets/img/rise2.png">
+                        </div>
+                        <div style="color: black; margin-top: 5%;">
+                            <label for="offset1" style="padding-left: 15px; padding-right: 15px;">
+                                <h3><b>OFFSET (Check One & Select Offset)</b></h3>
+                            </label><br>
+                            <!-- <input  type="radio" id="offset1" name="offset" value="Offset - 1"
+                                style="width: auto; margin-bottom: 0;position: absolute;
+    margin-top: -4px;" checked> -->
+                            <input  type="radio" id="ll-off" name="offsetAngle"
+                                value="L-L OFF" style="width: auto; margin-bottom: 0;position: absolute;
+        margin-left: 31px;
+    margin-top: 68px;" checked>
+
+                            <input  type="radio" id="rl-off" name="offsetAngle"
+                                value="R-L OFFSET" style="width: auto; margin-bottom: 0;position: absolute;
+       margin-left: 310px;
+    margin-top: 94px;">
+                            <img src="../../assets/img/offset1.png">
+                            <!-- <input  type="radio" id="offset2" name="offset" value="Offset - 2"
+                                style="width: auto; margin-bottom: 0;position: absolute;
+    margin-left: 37px;
+    margin-top: 20px;"> -->
+                            <input  type="radio" id="rr-off" name="offsetAngle"
+                                value="R-R OFF" style="width: auto; margin-bottom: 0;position: absolute;
+           margin-left: 35px;
+    margin-top: 105px;">
+
+                            <input  type="radio" id="lr-off" name="offsetAngle"
+                                value="L-R OFFSET" style="width: auto; margin-bottom: 0;position: absolute;
+          margin-left: 314px;
+    margin-top: 71px;">
+                            <img src="../../assets/img/offset2.png">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="btn-block">
+                <input type="submit" value="Submit">
+            </div>
+
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>
