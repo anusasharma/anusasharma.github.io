@@ -318,20 +318,25 @@
         }
 
         $(function(){
-            var dtToday = new Date();
+      var dtToday = new Date();
+
+            var nextDay = new Date(dtToday);
+            nextDay.setDate(dtToday.getDate() + 1);
 
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
+            var nextDate = nextDay.getDate();
             var year = dtToday.getFullYear();
-            if(month < 10)
+            if (month < 10)
                 month = '0' + month.toString();
-            if(day < 10)
-                day = '0' + day.toString();
-
-            var minDate= year + '-' + month + '-' + day;
-
+           if (nextDate < 10)
+nextDate = '0' + nextDate.toString();
+          
+            var minDate = year + '-' + month + '-' + day;
+            var next = year + '-' + month + '-' + nextDate;
             document.getElementById("date").value = minDate
-            $('#rdate').attr('min', minDate);
+
+            $('#rdate').attr('min', next);
         });
         function passValues()
         {

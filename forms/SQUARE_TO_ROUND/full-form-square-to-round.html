@@ -338,7 +338,8 @@
 
 
 <script>
-  document.getElementById("cname").innerHTML=localStorage.getItem("comnamevalue");
+  window.location.href.split('?')[0];
+        document.getElementById("cname").innerHTML = localStorage.getItem("comnamevalue");
   document.getElementById("po").innerHTML=localStorage.getItem("povalue");
   document.getElementById("fname").innerHTML=localStorage.getItem("firstnamevalue");
   document.getElementById("lname").innerHTML=localStorage.getItem("lastnamevalue");
@@ -380,10 +381,10 @@ html2pdf().set(options).from(element).outputPdf().then(function (pdf) {
     dataUri = btoa(pdf)
     Email.send({
         Host: "smtp.elasticemail.com",
-        Username: "anusarva57@gmail.com",
-        Password: "D968054CA996DB51A646DA4E3DB5FD127EB3",
-        To: "anusoruban@gmail.com",
-        From: "anusarva57@gmail.com",
+        Username: "aironmechanical1@gmail.com",
+                    Password: "73447475A1EAC9AB4F107874C3E1A90232B5",
+                    To: "aironmechanical1@gmail.com",
+                    From: "aironmechanical1@gmail.com",
         Subject: "Square to round pdf",
         Body: "Please check the Square to round pdf",
         Attachments: [

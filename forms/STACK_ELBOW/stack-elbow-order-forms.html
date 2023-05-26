@@ -284,6 +284,8 @@
     </style>
 
     <script type="text/javascript">
+                    console.log(window.location.href);
+
         function preventBack() {
             window.history.forward();
         }
@@ -298,7 +300,7 @@
             var ask = window.confirm("Do you want to submit the form?");
             if (ask) {
                 window.alert("Submitted");
-                window.location.href = "full-form-stack-elbow.html";
+
                 passValues();
             } else {
                 event.preventDefault();
@@ -308,18 +310,23 @@
         $(function () {
             var dtToday = new Date();
 
+            var nextDay = new Date(dtToday);
+            nextDay.setDate(dtToday.getDate() + 1);
+
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
+            var nextDate = nextDay.getDate();
             var year = dtToday.getFullYear();
             if (month < 10)
                 month = '0' + month.toString();
-            if (day < 10)
-                day = '0' + day.toString();
+           if (nextDate < 10)
+nextDate = '0' + nextDate.toString();
           
             var minDate = year + '-' + month + '-' + day;
+            var next = year + '-' + month + '-' + nextDate;
             document.getElementById("date").value = minDate
 
-            $('#rdate').attr('min', minDate);
+            $('#rdate').attr('min', next);
         });
 
         function passValues() {
@@ -393,10 +400,13 @@
                     localStorage.setItem("heelValue", checkedHeel[i].value);
             }
 
-           
+
+            
+            window.location.href = window.location.href.split('?')[0];
             return false;
 
         }
+
 
     </script>
 </head>
