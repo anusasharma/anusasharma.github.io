@@ -180,6 +180,14 @@
             display: flex;
             color: black
         }
+        .end{
+            display: flex;
+        }
+        .end-label{
+            align-self: center;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
         div#wrapper {
             position: relative;
@@ -317,12 +325,19 @@ nextDate = '0' + nextDate.toString();
                     localStorage.setItem("variationValue", checkedVariation[i].value);
             }
 
-            var checkedSide = document.getElementsByName("side");
+            var checkedSide1 = document.getElementsByName("side1");
 
-            for (i = 0; i < checkedSide.length; i++) {
-                if (checkedSide[i].checked)
-                    localStorage.setItem("sideValue", checkedSide[i].value);
+            for (i = 0; i < checkedSide1.length; i++) {
+                if (checkedSide1[i].checked)
+                    localStorage.setItem("sideValue1", checkedSide1[i].value);
             }
+
+            var checkedSide2 = document.getElementsByName("side2");
+
+for (i = 0; i < checkedSide2.length; i++) {
+    if (checkedSide2[i].checked)
+        localStorage.setItem("sideValue2", checkedSide2[i].value);
+}
             var gauge = document.getElementById("gauge").value;
             localStorage.setItem("gaugeValue", gauge);
 
@@ -445,21 +460,40 @@ nextDate = '0' + nextDate.toString();
                             </div>
                         </div>
 
-                        <div class="common-display">
-                            <input class="second-radio-button" type="radio" id="dfo" name="side" value="DFO"
+                        <div class="end">
+                            <h3 class="common-display">End 1:</h3>
+                            <input class="first-radio-button" type="radio" id="dfo" name="side1" value="DFO"
                             checked>
-                            <label class="label" for="dfo">DFO</label><br>
-                            <input class="second-radio-button" type="radio" id="fo" name="side" value="FO">
-                            <label class="label" for="fo">FO</label><br>
+                            <label class="end-label" for="dfo">DFO</label><br>
+                            <input class="second-radio-button" type="radio" id="fo" name="side1" value="FO">
+                            <label class="end-label" for="fo">FO</label><br>
 
-                            <input class="second-radio-button" type="radio" id="fi" name="side" value="FI">
-                            <label class="label" for="fi">FI</label><br>
+                            <input class="second-radio-button" type="radio" id="fi" name="side1" value="FI">
+                            <label class="end-label" for="fi">FI</label><br>
 
-                            <input class="second-radio-button" type="radio" id="raw" name="side" value="RAW">
-                            <label class="label" for="raw">RAW</label><br>
+                            <input class="second-radio-button" type="radio" id="raw" name="side1" value="RAW">
+                            <label class="end-label" for="raw">RAW</label><br>
 
-                            <input class="second-radio-button" type="radio" id="s&d" name="side" value="S&D">
-                            <label class="label" for="s&d">S&D</label><br>
+                            <input class="second-radio-button" type="radio" id="s&d" name="side1" value="S&D">
+                            <label class="end-label" for="s&d">S&D</label><br>
+                        </div>
+
+                        <div class="end">
+                            <h3 class="common-display">End 2:</h3>
+                            <input class="first-radio-button" type="radio" id="dfo" name="side2" value="DFO"
+                            checked>
+                            <label class="end-label" for="dfo">DFO</label><br>
+                            <input class="second-radio-button" type="radio" id="fo" name="side2" value="FO">
+                            <label class="end-label" for="fo">FO</label><br>
+
+                            <input class="second-radio-button" type="radio" id="fi" name="side2" value="FI">
+                            <label class="end-label" for="fi">FI</label><br>
+
+                            <input class="second-radio-button" type="radio" id="raw" name="side2" value="RAW">
+                            <label class="end-label" for="raw">RAW</label><br>
+
+                            <input class="second-radio-button" type="radio" id="s&d" name="side2" value="S&D">
+                            <label class="end-label" for="s&d">S&D</label><br>
                         </div>
 
                     </div>

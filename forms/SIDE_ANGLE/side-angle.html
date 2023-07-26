@@ -392,18 +392,6 @@ $('#rdate').attr('min', next);
                     localStorage.setItem("heelValue", checkedHeel[i].value);
             }
 
-            var checkedTurningVaneOption = document.getElementById("turning_vane_option").checked;
-            if (checkedTurningVaneOption === true) {
-                var turningVaneOption = document.getElementById("turning_vane_option").value;
-                localStorage.setItem("turningVaneOptionValue", turningVaneOption);
-                localStorage.setItem("checkedTurningVaneOptionValue", true);
-                localStorage.setItem("checkedTurningVaneOptionValueFalse", false);
-            } else {
-                var turningVaneOptionFalse = "None";
-                localStorage.setItem("turningVaneOptionValueFalse", turningVaneOptionFalse);
-                localStorage.setItem("checkedTurningVaneOptionValueFalse", true);
-                localStorage.setItem("checkedTurningVaneOptionValue", false);
-            }
 
             var A = document.getElementById("A").value;
             localStorage.setItem("Avalue", A);
@@ -542,15 +530,6 @@ $('#rdate').attr('min', next);
                         <label class="label" for="rad_heel">RAD HEEL</label><br>
                         <input class="second-radio-button" type="radio" id="sq_heel" name="heel" value="Sq heel">
                         <label class="label" for="sq_heel">SQ HEEL</label><br>
-                    </div>
-
-
-
-                    <div class="common-display">
-                        <input type="checkbox" id="turning_vane_option" name="turning_vane_option"
-                            value="Turning vane option" class="option-input" checked>
-                        <label for="turning_vane_option" class="label">TURNING VANE
-                            OPTION</label><br>
                     </div>
 
                     <div class="image-style">

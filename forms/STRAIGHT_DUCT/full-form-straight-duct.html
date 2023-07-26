@@ -251,8 +251,12 @@
             <td><span id="qty"></span></td>
         </tr>
         <tr>
-            <td >Option:</td>
-            <td><span id="checkedOptions"></span></td>
+            <td >End 1:</td>
+            <td><span id="checkedOptionsEnd1"></span></td>
+        </tr>
+        <tr>
+            <td >End 2:</td>
+            <td><span id="checkedOptionsEnd2"></span></td>
         </tr>
 
     </table>
@@ -284,7 +288,8 @@
 
   document.getElementById("checkedVariation").innerHTML=localStorage.getItem("variationValue");
 
-  document.getElementById("checkedOptions").innerHTML=localStorage.getItem("sideValue");
+  document.getElementById("checkedOptionsEnd1").innerHTML=localStorage.getItem("sideValue1");
+  document.getElementById("checkedOptionsEnd2").innerHTML=localStorage.getItem("sideValue2");
 
   document.getElementById("gauge").innerHTML=localStorage.getItem("gaugeValue");
   document.getElementById("qty").innerHTML=localStorage.getItem("qtyValue");

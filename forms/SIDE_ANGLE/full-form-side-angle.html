@@ -338,10 +338,7 @@
                 <td>Heel:</td>
                 <td><span id="checkedHeel"></span></td>
             </tr>
-            <tr>
-                <td>Turning vane option:</td>
-                <td><span id="checkedTurning"></span></td>
-            </tr>
+            
 
 
         </table>
@@ -380,12 +377,7 @@
 
         document.getElementById("checkedHeel").innerHTML = localStorage.getItem("heelValue");
 
-        if (localStorage.getItem("checkedTurningVaneOptionValue") === "true") {
-            document.getElementById("checkedTurning").innerHTML = localStorage.getItem("turningVaneOptionValue");
-        }
-        else {
-            document.getElementById("checkedTurning").innerHTML = localStorage.getItem("turningVaneOptionValueFalse");
-        }
+    
 
         document.getElementById("gauge").innerHTML = localStorage.getItem("gaugeValue");
         document.getElementById("qty").innerHTML = localStorage.getItem("qtyValue");
